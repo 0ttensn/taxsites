@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+    #map-canvas { width:950px; height:450px; }
+    .layer-wizard-search-label { font-family: sans-serif };
+  </style>
+  <script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?sensor=false">
+  </script>
+  <script type="text/javascript">
+    var map;
+    var layer_0;
+    var layer_1;
+    function initialize() {
+      map = new google.maps.Map(document.getElementById('map-canvas'), {
+        center: new google.maps.LatLng(40.82665486385489, -74.50968057910158),
+        zoom: 9
+      });
+      var style = [
+        {
+          featureType: 'all',
+          elementType: 'all',
+          stylers: [
+            { saturation: -99 }
+          ]
+        }
+      ];
+      var styledMapType = new google.maps.StyledMapType(style, {
+        map: map,
+        name: 'Styled Map'
+      });
+      map.mapTypes.set('map-style', styledMapType);
+      map.setMapTypeId('map-style');
+      layer_0 = new google.maps.FusionTablesLayer({
+        query: {
+          select: "col2",
+          from: "1rB8EDmRQJmhPeMVkXDqQM_TlUYj6Mj29WgQbvumZ"
+        },
+        map: map,
+        styleId: 5,
+        templateId: 6
+      });
+      layer_1 = new google.maps.FusionTablesLayer({
+        query: {
+          select: "col1",
+          from: "1N50zz86UoZqWHOkhcvNf9446hVk1cN_CsXDDcehq"
+        },
+        map: map,
+        styleId: 2,
+        templateId: 2
+      });
+    }
+    function changeMap_0() {
+      var whereClause;
+      var searchString = document.getElementById('search-string_0').value.replace(/'/g, "\\'");
+      if (searchString != '--Select--') {
+        whereClause = "'Center' = '" + searchString + "'";
+      }
+      layer_0.setOptions({
+        query: {
+          select: "col2",
+          from: "1rB8EDmRQJmhPeMVkXDqQM_TlUYj6Mj29WgQbvumZ",
+          where: whereClause
+        }
+      });
+    }
+    function changeMap_1() {
+      var whereClause;
+      var searchString = document.getElementById('search-string_1').value.replace(/'/g, "\\'");
+      if (searchString != '--Select--') {
+        whereClause = "'Name' = '" + searchString + "'";
+      }
+      layer_1.setOptions({
+        query: {
+          select: "col1",
+          from: "1N50zz86UoZqWHOkhcvNf9446hVk1cN_CsXDDcehq",
+          where: whereClause
+        }
+      });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+    <div style="margin-top: 10px;">
+      <label class="layer-wizard-search-label">
+        Center Name
+        <select id="search-string_0" onchange="changeMap_0(this.value);">
+          <option value="--Select--">--Select--</option>
+          <option value="A Pleasant Day Nursery schools">A Pleasant Day Nursery schools</option>
+          <option value="A-2-Z Academy of Early Learning, LLC">A-2-Z Academy of Early Learning, LLC</option>
+          <option value="A-Z Academy">A-Z Academy</option>
+          <option value="ABC Growing Tree">ABC Growing Tree</option>
+          <option value="ABC Playschools Nursery schools">ABC Playschools Nursery schools</option>
+          <option value="ABC's of Learning - Montville">ABC's of Learning - Montville</option>
+          <option value="Academy For Babies & Children, LLC">Academy For Babies & Children, LLC</option>
+          <option value="Academy Preschools and Kindergarten">Academy Preschools and Kindergarten</option>
+          <option value="Acorn Landing Children's Center">Acorn Landing Children's Center</option>
+          <option value="Ada Budrick Child Care & Learning Center">Ada Budrick Child Care & Learning Center</option>
+          <option value="Alan E. Zimmer Chabad Preschools">Alan E. Zimmer Chabad Preschools</option>
+          <option value="All Day Learning Centers">All Day Learning Centers</option>
+          <option value="Allamuchy Township Early Childhood Center">Allamuchy Township Early Childhood Center</option>
+          <option value="Alphabetland,An Early Childhood Education Center">Alphabetland,An Early Childhood Education Center</option>
+          <option value="Alpine Montessori">Alpine Montessori</option>
+          <option value="Alpine Montessori of Millburn">Alpine Montessori of Millburn</option>
+          <option value="American Montessori schools">American Montessori schools</option>
+          <option value="Amie and Dean Investments LLCdbaThe Lrng.Experience">Amie and Dean Investments LLCdbaThe Lrng.Experience</option>
+          <option value="Andover Children's Academy, LLC">Andover Children's Academy, LLC</option>
+          <option value="Anny's Playhouse Child Development Center, LLC">Anny's Playhouse Child Development Center, LLC</option>
+          <option value="Apples & Books Learning Center">Apples & Books Learning Center</option>
+          <option value="Away We Grow Child Care Center">Away We Grow Child Care Center</option>
+          <option value="Bayer Discovery Days">Bayer Discovery Days</option>
+          <option value="Beaver Brook Child Care Center dba Kids at Play">Beaver Brook Child Care Center dba Kids at Play</option>
+          <option value="Believers Learning & Day Care Center">Believers Learning & Day Care Center</option>
+          <option value="Belmont Center">Belmont Center</option>
+          <option value="Best Time, LLC">Best Time, LLC</option>
+          <option value="Blair Academy Childcare Learning Center">Blair Academy Childcare Learning Center</option>
+          <option value="Blooming Hearts Child Development Center, Inc">Blooming Hearts Child Development Center, Inc</option>
+          <option value="Blue Skies Day Care">Blue Skies Day Care</option>
+          <option value="Boro Kids">Boro Kids</option>
+          <option value="Boys and Girls Club of Pequannock">Boys and Girls Club of Pequannock</option>
+          <option value="Bridges to Learning">Bridges to Learning</option>
+          <option value="Bright Beginnings Pre-schools of New Jersey, Inc.">Bright Beginnings Pre-schools of New Jersey, Inc.</option>
+          <option value="Bright Beginnings pre-schools of NJ, Inc.">Bright Beginnings pre-schools of NJ, Inc.</option>
+          <option value="Bright Horizons Child Development Center-Mt. Lakes">Bright Horizons Child Development Center-Mt. Lakes</option>
+          <option value="Bright Horizons Children's Center">Bright Horizons Children's Center</option>
+          <option value="Bright Horizons at Campus Drive">Bright Horizons at Campus Drive</option>
+          <option value="Bright Horizons at Lopatcong">Bright Horizons at Lopatcong</option>
+          <option value="Bright Horizons at Mt. Olive">Bright Horizons at Mt. Olive</option>
+          <option value="Bright Horizons at Rockaway">Bright Horizons at Rockaway</option>
+          <option value="Bright Horizons at Roseland">Bright Horizons at Roseland</option>
+          <option value="Bright Horizons at Somerset">Bright Horizons at Somerset</option>
+          <option value="Bright Start Early Learning Center">Bright Start Early Learning Center</option>
+          <option value="Bright Start Pre-schools and Daycare">Bright Start Pre-schools and Daycare</option>
+          <option value="Building Blocks University Early Childhood Enrichment">Building Blocks University Early Childhood Enrichment</option>
+          <option value="Building Blocks for Tots, LLC">Building Blocks for Tots, LLC</option>
+          <option value="Busy Beaver Nursery schools">Busy Beaver Nursery schools</option>
+          <option value="Busy Bee Academy, Inc.">Busy Bee Academy, Inc.</option>
+          <option value="Busy Bees Club House and Learning Center">Busy Bees Club House and Learning Center</option>
+          <option value="Calvary Nursery schools">Calvary Nursery schools</option>
+          <option value="Canfield Kids">Canfield Kids</option>
+          <option value="Carousel of Learning">Carousel of Learning</option>
+          <option value="Catholic Charities Preschools Prg at Phillipsburg Early Chld">Catholic Charities Preschools Prg at Phillipsburg Early Chld</option>
+          <option value="Cedar Hill Prep schools">Cedar Hill Prep schools</option>
+          <option value="Central Jersey enrichment Center, Inc">Central Jersey enrichment Center, Inc</option>
+          <option value="Chabad Early Learning Center">Chabad Early Learning Center</option>
+          <option value="Chatham KinderCare">Chatham KinderCare</option>
+          <option value="Chatham United Methodist Mother's Morning Out">Chatham United Methodist Mother's Morning Out</option>
+          <option value="Chatham United Methodist Nursery schools">Chatham United Methodist Nursery schools</option>
+          <option value="Chatham schools House">Chatham schools House</option>
+          <option value="Children of America Parsippany, LLC">Children of America Parsippany, LLC</option>
+          <option value="Children on the Green">Children on the Green</option>
+          <option value="Children's Center Preschools">Children's Center Preschools</option>
+          <option value="Children's Circle">Children's Circle</option>
+          <option value="Children's Corner">Children's Corner</option>
+          <option value="Children's Corner of Bridgewater United Methodist Church">Children's Corner of Bridgewater United Methodist Church</option>
+          <option value="Childtime Learning Center">Childtime Learning Center</option>
+          <option value="Christ Church Nur Sch & Drop-In-Center">Christ Church Nur Sch & Drop-In-Center</option>
+          <option value="Collinsville Child Care Center (CLOSED)">Collinsville Child Care Center (CLOSED)</option>
+          <option value="Community Christian Academy and Preschools">Community Christian Academy and Preschools</option>
+          <option value="Community Kids' Preschools">Community Kids' Preschools</option>
+          <option value="Community Nursery Group">Community Nursery Group</option>
+          <option value="Community Nursery schools, Inc.">Community Nursery schools, Inc.</option>
+          <option value="Congregation Agudath Israel Early Childhood Center">Congregation Agudath Israel Early Childhood Center</option>
+          <option value="Congregation B'nai Jeshurun /The Rabbi Barry H.Greene Early">Congregation B'nai Jeshurun /The Rabbi Barry H.Greene Early</option>
+          <option value="Cookies & Juice">Cookies & Juice</option>
+          <option value="Country Child Care & Early Learning Center">Country Child Care & Early Learning Center</option>
+          <option value="Cradles To Crayons Childcare-Morristown">Cradles To Crayons Childcare-Morristown</option>
+          <option value="Cradles to Crayons">Cradles to Crayons</option>
+          <option value="Crawlers 2 Scholars Early Childhood Education Center">Crawlers 2 Scholars Early Childhood Education Center</option>
+          <option value="Creative Beginnings Preschools">Creative Beginnings Preschools</option>
+          <option value="Creative Kid Kare Day Care">Creative Kid Kare Day Care</option>
+          <option value="Creme De La Creme">Creme De La Creme</option>
+          <option value="Cresthill Academy">Cresthill Academy</option>
+          <option value="Curious Minds">Curious Minds</option>
+          <option value="Deniece's "Homestyle" Daycare LLC">Deniece's "Homestyle" Daycare LLC</option>
+          <option value="Denville Community Church Nursery schools">Denville Community Church Nursery schools</option>
+          <option value="Discovery Years">Discovery Years</option>
+          <option value="Dover Child Care Center, Inc. Infant/Toddler and Pre-schools">Dover Child Care Center, Inc. Infant/Toddler and Pre-schools</option>
+          <option value="Drake Properties, INC. DBA Lightbridge Academy-West Caldwell">Drake Properties, INC. DBA Lightbridge Academy-West Caldwell</option>
+          <option value="Drew University Acorn Academy">Drew University Acorn Academy</option>
+          <option value="Early Discovery Learning Center, LLC">Early Discovery Learning Center, LLC</option>
+          <option value="Early Explorers LLC">Early Explorers LLC</option>
+          <option value="Early Learning Center">Early Learning Center</option>
+          <option value="Early Years Child Care Center">Early Years Child Care Center</option>
+          <option value="East Hanover Child Care Center">East Hanover Child Care Center</option>
+          <option value="East Hanover Co-operative Nursery schools">East Hanover Co-operative Nursery schools</option>
+          <option value="El Primer Paso Ltd">El Primer Paso Ltd</option>
+          <option value="Elements of Learning 2">Elements of Learning 2</option>
+          <option value="Elite Kids Academy">Elite Kids Academy</option>
+          <option value="Executive Kids Preschools">Executive Kids Preschools</option>
+          <option value="Executive Kids of Verona, LLC">Executive Kids of Verona, LLC</option>
+          <option value="Executive Kids/DBA Korporate Kids Learning Center">Executive Kids/DBA Korporate Kids Learning Center</option>
+          <option value="First Baptist Church Pre-schools">First Baptist Church Pre-schools</option>
+          <option value="First Impressions">First Impressions</option>
+          <option value="First Impressions Childcare">First Impressions Childcare</option>
+          <option value="First Impressions Childcare Center">First Impressions Childcare Center</option>
+          <option value="First Presbyterian Church Week Day Nursery schools">First Presbyterian Church Week Day Nursery schools</option>
+          <option value="First Presbyterian Cooperative Nursery schools">First Presbyterian Cooperative Nursery schools</option>
+          <option value="Flanders Valley Country Day schools">Flanders Valley Country Day schools</option>
+          <option value="Footprints A/K/A Footprints Montessori">Footprints A/K/A Footprints Montessori</option>
+          <option value="For Kids Only II">For Kids Only II</option>
+          <option value="Forest Lakes Nursery schools">Forest Lakes Nursery schools</option>
+          <option value="Franklin Township Summer Camp">Franklin Township Summer Camp</option>
+          <option value="Friendship Center, Inc.">Friendship Center, Inc.</option>
+          <option value="Fun 'n' Friends Nursery schools">Fun 'n' Friends Nursery schools</option>
+          <option value="Fun Time Kids Academy 2,">Fun Time Kids Academy 2,</option>
+          <option value="Garden Patch Preschools">Garden Patch Preschools</option>
+          <option value="Gentle Shepherd Christian Pre-schools">Gentle Shepherd Christian Pre-schools</option>
+          <option value="Gethsemane Lutheran Pre-schools">Gethsemane Lutheran Pre-schools</option>
+          <option value="Goddard schools">Goddard schools</option>
+          <option value="Good Shepherd Christian Day Care">Good Shepherd Christian Day Care</option>
+          <option value="Good Shepherd Preschools">Good Shepherd Preschools</option>
+          <option value="Great Beginnings Children's Learning Center">Great Beginnings Children's Learning Center</option>
+          <option value="Greatstart Early Learning Center">Greatstart Early Learning Center</option>
+          <option value="Green Apple Academy Preschools and Daycare">Green Apple Academy Preschools and Daycare</option>
+          <option value="Greenwich Nursery schools, Inc.">Greenwich Nursery schools, Inc.</option>
+          <option value="Growing Tree Pre-schools and Kindergarten">Growing Tree Pre-schools and Kindergarten</option>
+          <option value="Growing and Knowing Academy">Growing and Knowing Academy</option>
+          <option value="H & S For Kids Only, Inc.">H & S For Kids Only, Inc.</option>
+          <option value="Half Pint Early Learning and Child Care Center">Half Pint Early Learning and Child Care Center</option>
+          <option value="Hamilton Center">Hamilton Center</option>
+          <option value="Happy Faces Childcare and Learning Center">Happy Faces Childcare and Learning Center</option>
+          <option value="HeadStart Community Program of Morris County, Inc.">HeadStart Community Program of Morris County, Inc.</option>
+          <option value="Hearts and Hands Preschools Program">Hearts and Hands Preschools Program</option>
+          <option value="Heaven Sent Nursery schools">Heaven Sent Nursery schools</option>
+          <option value="Heavenly Angels Learning Center, LLC">Heavenly Angels Learning Center, LLC</option>
+          <option value="Hedwig Gruenewald Early Childhood Ctr. Of Cong. B'nai Israel">Hedwig Gruenewald Early Childhood Ctr. Of Cong. B'nai Israel</option>
+          <option value="Heritage Children's Academy">Heritage Children's Academy</option>
+          <option value="Hillside Lutheran Brethren Church">Hillside Lutheran Brethren Church</option>
+          <option value="Hilltop Christian Nursery schools">Hilltop Christian Nursery schools</option>
+          <option value="Holy Cross Pre-schools">Holy Cross Pre-schools</option>
+          <option value="Hopatcong HeadStart">Hopatcong HeadStart</option>
+          <option value="Iliff's Camps & Clinic, LLC">Iliff's Camps & Clinic, LLC</option>
+          <option value="Imagine and Learn Childcare Center">Imagine and Learn Childcare Center</option>
+          <option value="Imandarin schools">Imandarin schools</option>
+          <option value="Incredible Kids Academy">Incredible Kids Academy</option>
+          <option value="Inspire Kids">Inspire Kids</option>
+          <option value="Iris Berman Nursery schools">Iris Berman Nursery schools</option>
+          <option value="Jacksonville Chapel Nursery schools">Jacksonville Chapel Nursery schools</option>
+          <option value="Jefferson Child Care & Education Center">Jefferson Child Care & Education Center</option>
+          <option value="Jerry Davis Early Childhood Center">Jerry Davis Early Childhood Center</option>
+          <option value="Jewish Community Early Childhood Center">Jewish Community Early Childhood Center</option>
+          <option value="Johnson & Johnson Child Development Center at Skillman">Johnson & Johnson Child Development Center at Skillman</option>
+          <option value="Johnson & Johnson Child Development Center of Somerset Count">Johnson & Johnson Child Development Center of Somerset Count</option>
+          <option value="Jonan Academy">Jonan Academy</option>
+          <option value="Joyful Noise Nursery schools & D C C">Joyful Noise Nursery schools & D C C</option>
+          <option value="Just Kidz">Just Kidz</option>
+          <option value="K.E.E.P., Inc. - Lafayette schools">K.E.E.P., Inc. - Lafayette schools</option>
+          <option value="Kangaroo Kids Child Care & Learning Center">Kangaroo Kids Child Care & Learning Center</option>
+          <option value="Kiddie Academy Child Care Learning Ctr.">Kiddie Academy Child Care Learning Ctr.</option>
+          <option value="Kiddie Academy of Bridgewater">Kiddie Academy of Bridgewater</option>
+          <option value="Kiddie Academy of Florham Park">Kiddie Academy of Florham Park</option>
+          <option value="Kiddie Academy of West Caldwell">Kiddie Academy of West Caldwell</option>
+          <option value="Kiddie Kampus Child Care Center">Kiddie Kampus Child Care Center</option>
+          <option value="Kidoodle Learning Center">Kidoodle Learning Center</option>
+          <option value="Kids Come First Learning Center">Kids Come First Learning Center</option>
+          <option value="Kids Connect">Kids Connect</option>
+          <option value="Kids Playway Learning Center">Kids Playway Learning Center</option>
+          <option value="Kinder Kastle Childcare/Learning Center">Kinder Kastle Childcare/Learning Center</option>
+          <option value="KinderCare Learning Center">KinderCare Learning Center</option>
+          <option value="KinderCare Learning Center #1170">KinderCare Learning Center #1170</option>
+          <option value="KinderCare Learning Center #915">KinderCare Learning Center #915</option>
+          <option value="KinderCare at Work #1271">KinderCare at Work #1271</option>
+          <option value="Kindercapers Preschools">Kindercapers Preschools</option>
+          <option value="Kindercare Learning Center">Kindercare Learning Center</option>
+          <option value="King Of Kings Preschools">King Of Kings Preschools</option>
+          <option value="King's Kids Day Care Center">King's Kids Day Care Center</option>
+          <option value="Kingdom Kidz I">Kingdom Kidz I</option>
+          <option value="Klassy Kids">Klassy Kids</option>
+          <option value="L'il Keepers">L'il Keepers</option>
+          <option value="Learn and Play Academy">Learn and Play Academy</option>
+          <option value="Liberty Learning Center">Liberty Learning Center</option>
+          <option value="Lil Peoples Playhouse, Inc.">Lil Peoples Playhouse, Inc.</option>
+          <option value="Little Achievements Child Care Center">Little Achievements Child Care Center</option>
+          <option value="Little Angels Christian Montessori schools">Little Angels Christian Montessori schools</option>
+          <option value="Little Angels Learning Center">Little Angels Learning Center</option>
+          <option value="Little Bears Day Care">Little Bears Day Care</option>
+          <option value="Little Bears Learning Center">Little Bears Learning Center</option>
+          <option value="Little Buddies Childcare">Little Buddies Childcare</option>
+          <option value="Little Children of God Preschools & Kindergarten">Little Children of God Preschools & Kindergarten</option>
+          <option value="Little Duck Day schools">Little Duck Day schools</option>
+          <option value="Little Ducklings (Middle Earth) CLOSED Nov 2016">Little Ducklings (Middle Earth) CLOSED Nov 2016</option>
+          <option value="Little Footprints Learning Center">Little Footprints Learning Center</option>
+          <option value="Little Friends Of Jesus Nursery schools">Little Friends Of Jesus Nursery schools</option>
+          <option value="Little Friends of Chatham, Inc">Little Friends of Chatham, Inc</option>
+          <option value="Little Gems Montessori Academy">Little Gems Montessori Academy</option>
+          <option value="Little Genius Planet">Little Genius Planet</option>
+          <option value="Little Lambs">Little Lambs</option>
+          <option value="Little Lambs Christian Nursery schools">Little Lambs Christian Nursery schools</option>
+          <option value="Little Learner Academy">Little Learner Academy</option>
+          <option value="Little Learner Academy - Denville">Little Learner Academy - Denville</option>
+          <option value="Little Learner Academy - Montville">Little Learner Academy - Montville</option>
+          <option value="Little Learner Academy, Inc.">Little Learner Academy, Inc.</option>
+          <option value="Little Learner Academy- Jefferson">Little Learner Academy- Jefferson</option>
+          <option value="Little People's Academy, Inc.">Little People's Academy, Inc.</option>
+          <option value="Little Promises">Little Promises</option>
+          <option value="Little Seaters Day Care Preschools Belvidere">Little Seaters Day Care Preschools Belvidere</option>
+          <option value="Little Tots Academy">Little Tots Academy</option>
+          <option value="Little Village Country Day schools">Little Village Country Day schools</option>
+          <option value="Little Wonders Childcare & Learning Center">Little Wonders Childcare & Learning Center</option>
+          <option value="Little XYZ Inc DBA The Goddard schools">Little XYZ Inc DBA The Goddard schools</option>
+          <option value="Livingston's Little Learners">Livingston's Little Learners</option>
+          <option value="Long Hill Christian Pre-schools">Long Hill Christian Pre-schools</option>
+          <option value="Long Hill Montessori schools">Long Hill Montessori schools</option>
+          <option value="Long Valley Christian Nursery schools">Long Valley Christian Nursery schools</option>
+          <option value="Love 2 Learn">Love 2 Learn</option>
+          <option value="Love Laugh Learn Academic Childcare">Love Laugh Learn Academic Childcare</option>
+          <option value="Loving & Learning Christian Childcare Center, Inc.">Loving & Learning Christian Childcare Center, Inc.</option>
+          <option value="MMO Programs">MMO Programs</option>
+          <option value="Madison Community House Nursery schools">Madison Community House Nursery schools</option>
+          <option value="Madison Cooperative Nursery schools">Madison Cooperative Nursery schools</option>
+          <option value="Madison Montessori schools">Madison Montessori schools</option>
+          <option value="Magic Garden schools & Early Learning Center">Magic Garden schools & Early Learning Center</option>
+          <option value="Magic Kingdom Day Nursery">Magic Kingdom Day Nursery</option>
+          <option value="Maple Tree Montessori">Maple Tree Montessori</option>
+          <option value="Marion Mann Roberts Early Learning Center">Marion Mann Roberts Early Learning Center</option>
+          <option value="Mary Mother of God Nursery schools">Mary Mother of God Nursery schools</option>
+          <option value="Memorial Elementary schools">Memorial Elementary schools</option>
+          <option value="Mendham Cooperative Nursery schools">Mendham Cooperative Nursery schools</option>
+          <option value="Mendham Country Day schools at Basking Ridge">Mendham Country Day schools at Basking Ridge</option>
+          <option value="Mikes Tikes Preschools and Childcare Center LLC">Mikes Tikes Preschools and Childcare Center LLC</option>
+          <option value="Milestone Montessori">Milestone Montessori</option>
+          <option value="Millburn Township Co-operative Nur Sch">Millburn Township Co-operative Nur Sch</option>
+          <option value="Millicent Fenwick Day Care Center">Millicent Fenwick Day Care Center</option>
+          <option value="Millie's House">Millie's House</option>
+          <option value="Montclair Child Development Center, Inc.">Montclair Child Development Center, Inc.</option>
+          <option value="Montclair Child Development Center, Inc. Head Start">Montclair Child Development Center, Inc. Head Start</option>
+          <option value="Montclair Community Pre-K">Montclair Community Pre-K</option>
+          <option value="Montessori Academy and Learning Center">Montessori Academy and Learning Center</option>
+          <option value="Montgomery Kid Connection">Montgomery Kid Connection</option>
+          <option value="Morris County EduCare & Enrichment Center-Kenvil">Morris County EduCare & Enrichment Center-Kenvil</option>
+          <option value="Morris County EduCare and Enrichment Center, LLC">Morris County EduCare and Enrichment Center, LLC</option>
+          <option value="Morris Plains Cooperative Play schools">Morris Plains Cooperative Play schools</option>
+          <option value="Morristown Neighborhood House Child Care">Morristown Neighborhood House Child Care</option>
+          <option value="Mother Goose Child Care Center">Mother Goose Child Care Center</option>
+          <option value="Mothers Morning Out at Ogden">Mothers Morning Out at Ogden</option>
+          <option value="Mountain Lakes Country Day schools">Mountain Lakes Country Day schools</option>
+          <option value="Mountain Top schools for Young Children">Mountain Top schools for Young Children</option>
+          <option value="Mountain Way schools-Y Kids Morris Center">Mountain Way schools-Y Kids Morris Center</option>
+          <option value="Mt. Olive Child Care & Learning Center">Mt. Olive Child Care & Learning Center</option>
+          <option value="My Special Spot Nurturing and Enrichment Center, Inc">My Special Spot Nurturing and Enrichment Center, Inc</option>
+          <option value="NORWESCAP Early Head Start Morris County/Denville Head Start">NORWESCAP Early Head Start Morris County/Denville Head Start</option>
+          <option value="Neighborhood Child Care Center, Inc.">Neighborhood Child Care Center, Inc.</option>
+          <option value="Neighborhood House Nursery schools">Neighborhood House Nursery schools</option>
+          <option value="New Horizons Montessori">New Horizons Montessori</option>
+          <option value="Newton Head Start">Newton Head Start</option>
+          <option value="Nicholas Montessori schools">Nicholas Montessori schools</option>
+          <option value="Noah's Ark Christian Day Care and Preschools">Noah's Ark Christian Day Care and Preschools</option>
+          <option value="North Branch Reformed Church Preschools">North Branch Reformed Church Preschools</option>
+          <option value="North Plainfield Center">North Plainfield Center</option>
+          <option value="Novartis Early Learning Center">Novartis Early Learning Center</option>
+          <option value="Nursery schools at Saint Dunstans">Nursery schools at Saint Dunstans</option>
+          <option value="Oak Tree Preschools">Oak Tree Preschools</option>
+          <option value="One Two Three Kinderstar Day Sch DBA 123 Kinderstar Day Sch.">One Two Three Kinderstar Day Sch DBA 123 Kinderstar Day Sch.</option>
+          <option value="Open Door Nursery schools">Open Door Nursery schools</option>
+          <option value="Our Little schoolshouse">Our Little schoolshouse</option>
+          <option value="Our Nation's Children Linguistic Day Care Learning Center">Our Nation's Children Linguistic Day Care Learning Center</option>
+          <option value="Our Savior Nursery schools">Our Savior Nursery schools</option>
+          <option value="Over The Rainbow Children's Center">Over The Rainbow Children's Center</option>
+          <option value="Over the Rainbow Nursery, Inc.">Over the Rainbow Nursery, Inc.</option>
+          <option value="P G Chambers schools -- Kids Count Child Care">P G Chambers schools -- Kids Count Child Care</option>
+          <option value="PALS Play and Learn schools">PALS Play and Learn schools</option>
+          <option value="PG's Kiddie College">PG's Kiddie College</option>
+          <option value="Park Street Academy">Park Street Academy</option>
+          <option value="Parkside Montessori schools">Parkside Montessori schools</option>
+          <option value="Parsippany Child Day Care Center">Parsippany Child Day Care Center</option>
+          <option value="Peace N Joy Academy">Peace N Joy Academy</option>
+          <option value="Peachtree Montessori II">Peachtree Montessori II</option>
+          <option value="Peachtree Montessori Learning Center">Peachtree Montessori Learning Center</option>
+          <option value="Peachtree Montessori Learning Center LLC Engle Day schools">Peachtree Montessori Learning Center LLC Engle Day schools</option>
+          <option value="Pee Wee University">Pee Wee University</option>
+          <option value="Phillipsburg Head Start">Phillipsburg Head Start</option>
+          <option value="Phillipsburg Head Start Program Roseberry">Phillipsburg Head Start Program Roseberry</option>
+          <option value="Pilgrim Nursery schools">Pilgrim Nursery schools</option>
+          <option value="Pilsbury Nursery schools, Inc.">Pilsbury Nursery schools, Inc.</option>
+          <option value="Pine Brook Jewish Center Nursery schools">Pine Brook Jewish Center Nursery schools</option>
+          <option value="Play & Grow Learning Center">Play & Grow Learning Center</option>
+          <option value="Pluckemin Church Preschools">Pluckemin Church Preschools</option>
+          <option value="Pompton Plains Pre-schools">Pompton Plains Pre-schools</option>
+          <option value="Precious Jewels Child Care LLC">Precious Jewels Child Care LLC</option>
+          <option value="Presbyterian Church in Morristown N. S.">Presbyterian Church in Morristown N. S.</option>
+          <option value="Preschools Place & Kind. at Temple Sholom">Preschools Place & Kind. at Temple Sholom</option>
+          <option value="Primrose schools Of Warren">Primrose schools Of Warren</option>
+          <option value="Primrose schools of Florham Park">Primrose schools of Florham Park</option>
+          <option value="Prince of Peace Early Learning Center">Prince of Peace Early Learning Center</option>
+          <option value="Project Self-Sufficiency Little Sprouts Early Learning Cente">Project Self-Sufficiency Little Sprouts Early Learning Cente</option>
+          <option value="Project TEACH-Warren">Project TEACH-Warren</option>
+          <option value="Quality Time Childcare">Quality Time Childcare</option>
+          <option value="RA-Whippany, LLC. DBA Lightbridge Academy-Whippany">RA-Whippany, LLC. DBA Lightbridge Academy-Whippany</option>
+          <option value="Rainbow Child Care Center">Rainbow Child Care Center</option>
+          <option value="Rainbow Child Development Center">Rainbow Child Development Center</option>
+          <option value="Rainbow Montessori Madison">Rainbow Montessori Madison</option>
+          <option value="Rainbows of Learning">Rainbows of Learning</option>
+          <option value="Randolph Country Day schools">Randolph Country Day schools</option>
+          <option value="Randolph Rompers Preschools">Randolph Rompers Preschools</option>
+          <option value="Redeemer Christian schools">Redeemer Christian schools</option>
+          <option value="Redeemer Lutheran Preschools">Redeemer Lutheran Preschools</option>
+          <option value="Rhyme and Reason">Rhyme and Reason</option>
+          <option value="Richard F. Blake Children's Center">Richard F. Blake Children's Center</option>
+          <option value="Robin's Nest Nursery schools">Robin's Nest Nursery schools</option>
+          <option value="Rocky Hill Cooperative Nursery schools">Rocky Hill Cooperative Nursery schools</option>
+          <option value="Roe's Country Day Care">Roe's Country Day Care</option>
+          <option value="Roseland Child Development Center">Roseland Child Development Center</option>
+          <option value="Roxbury Day Care Center, Inc.">Roxbury Day Care Center, Inc.</option>
+          <option value="SOLNYSHKO Day Care Center">SOLNYSHKO Day Care Center</option>
+          <option value="Saint Bernard Pre-schools & Kindergarten">Saint Bernard Pre-schools & Kindergarten</option>
+          <option value="Saint James Preschools Program">Saint James Preschools Program</option>
+          <option value="Saint John's on the Mountain Nursery schools">Saint John's on the Mountain Nursery schools</option>
+          <option value="Saint Jude Giving Tree">Saint Jude Giving Tree</option>
+          <option value="Saint Luke Catholic Pre-schools">Saint Luke Catholic Pre-schools</option>
+          <option value="Saint Martin's schools">Saint Martin's schools</option>
+          <option value="Saint Peter's Nursery schools">Saint Peter's Nursery schools</option>
+          <option value="Salta! Jump into Spanish">Salta! Jump into Spanish</option>
+          <option value="Scribbles Preschools, Inc.">Scribbles Preschools, Inc.</option>
+          <option value="Second Home Child Care Center">Second Home Child Care Center</option>
+          <option value="Seedlings Infant Toddler Preschools">Seedlings Infant Toddler Preschools</option>
+          <option value="Shalom Yeladim Nursery schools">Shalom Yeladim Nursery schools</option>
+          <option value="Shomrei Emunah Preschools">Shomrei Emunah Preschools</option>
+          <option value="Small Society Academy">Small Society Academy</option>
+          <option value="Smart Start Preschools of Stewartsville, Inc.">Smart Start Preschools of Stewartsville, Inc.</option>
+          <option value="Smoke Rise Cooperative Nursery schools">Smoke Rise Cooperative Nursery schools</option>
+          <option value="So Big Child Development Center, LLC.">So Big Child Development Center, LLC.</option>
+          <option value="Solnyshko Day Care Center">Solnyshko Day Care Center</option>
+          <option value="Somerset Community Action Program, Inc">Somerset Community Action Program, Inc</option>
+          <option value="Somerset County YMCA Somerville Early Education Center">Somerset County YMCA Somerville Early Education Center</option>
+          <option value="Somerset Hills Montessori schools, Inc.">Somerset Hills Montessori schools, Inc.</option>
+          <option value="Somerset Valley YMCA Gregory Scott Lowe Child Care Center">Somerset Valley YMCA Gregory Scott Lowe Child Care Center</option>
+          <option value="South Branch Reformed Church Nursery schools">South Branch Reformed Church Nursery schools</option>
+          <option value="Sparta Parks and Recreation "Circle of Friends" Pre-schools">Sparta Parks and Recreation "Circle of Friends" Pre-schools</option>
+          <option value="Sprout House">Sprout House</option>
+          <option value="St. Stephen's Preschools and Child Care Center">St. Stephen's Preschools and Child Care Center</option>
+          <option value="Stanley Congregational Nursery schools">Stanley Congregational Nursery schools</option>
+          <option value="Stellar Academy">Stellar Academy</option>
+          <option value="Stellar Academy Of Hillsborough">Stellar Academy Of Hillsborough</option>
+          <option value="Stepping Stone schools">Stepping Stone schools</option>
+          <option value="Stepping Stones Montessori schools">Stepping Stones Montessori schools</option>
+          <option value="Stepping Stones Nursery schools and Child Care">Stepping Stones Nursery schools and Child Care</option>
+          <option value="Suburban Hills schools">Suburban Hills schools</option>
+          <option value="Sunny Days On Main LLC">Sunny Days On Main LLC</option>
+          <option value="Sunnyfields Learning Center">Sunnyfields Learning Center</option>
+          <option value="Sunset Cooperative Nursery schools">Sunset Cooperative Nursery schools</option>
+          <option value="Sunshine Preschools">Sunshine Preschools</option>
+          <option value="Susan's Family Learning Center">Susan's Family Learning Center</option>
+          <option value="Sussex-Wantage Preschools Learning Center">Sussex-Wantage Preschools Learning Center</option>
+          <option value="Taylor Street">Taylor Street</option>
+          <option value="Taylor's Learning Center">Taylor's Learning Center</option>
+          <option value="Taylor's Learning Center II">Taylor's Learning Center II</option>
+          <option value="Teddy & Me Day Care">Teddy & Me Day Care</option>
+          <option value="Temple B'Nai Abraham - Early schools">Temple B'Nai Abraham - Early schools</option>
+          <option value="Temple Beth Shalom Nursery schools">Temple Beth Shalom Nursery schools</option>
+          <option value="Temple Bnai Or Pre-schools">Temple Bnai Or Pre-schools</option>
+          <option value="The Academy Child Care Center of ELCC">The Academy Child Care Center of ELCC</option>
+          <option value="The Ark of Care Child Development Center">The Ark of Care Child Development Center</option>
+          <option value="The Auxilium schools">The Auxilium schools</option>
+          <option value="The Beanstalk Academy">The Beanstalk Academy</option>
+          <option value="The Blawenburg Village schools">The Blawenburg Village schools</option>
+          <option value="The Blessed Beginnings Preschools & Kindergarten">The Blessed Beginnings Preschools & Kindergarten</option>
+          <option value="The Building Blocks of Learning/CMHCC">The Building Blocks of Learning/CMHCC</option>
+          <option value="The Center for Great Expectations">The Center for Great Expectations</option>
+          <option value="The Child Development Center at Giralda">The Child Development Center at Giralda</option>
+          <option value="The Children's Campus at R.V.C.C.">The Children's Campus at R.V.C.C.</option>
+          <option value="The Children's Corner">The Children's Corner</option>
+          <option value="The Children's Corner of West Essex, Inc.">The Children's Corner of West Essex, Inc.</option>
+          <option value="The Children's Garden of Learning">The Children's Garden of Learning</option>
+          <option value="The Children's House, Inc">The Children's House, Inc</option>
+          <option value="The Children's Studio">The Children's Studio</option>
+          <option value="The Children's Workshop Preschools, Inc.">The Children's Workshop Preschools, Inc.</option>
+          <option value="The Christian Nurturing Center">The Christian Nurturing Center</option>
+          <option value="The Cottage schools">The Cottage schools</option>
+          <option value="The Country Day schools">The Country Day schools</option>
+          <option value="The Dogwood schools">The Dogwood schools</option>
+          <option value="The Early Childhood Center at Temple Emanu-El">The Early Childhood Center at Temple Emanu-El</option>
+          <option value="The Ethicon Family Center">The Ethicon Family Center</option>
+          <option value="The F M Kirby Children's Center">The F M Kirby Children's Center</option>
+          <option value="The French Academy">The French Academy</option>
+          <option value="The Gingham Giraffe Preschools">The Gingham Giraffe Preschools</option>
+          <option value="The Giving Nest II">The Giving Nest II</option>
+          <option value="The Giving Nest Preschools & Kindergarten">The Giving Nest Preschools & Kindergarten</option>
+          <option value="The Giving Nest Preschools & Kindergarten in Martinsville">The Giving Nest Preschools & Kindergarten in Martinsville</option>
+          <option value="The Giving Nest Preschools in Martinsville">The Giving Nest Preschools in Martinsville</option>
+          <option value="The Goddard schools">The Goddard schools</option>
+          <option value="The Grit Academy">The Grit Academy</option>
+          <option value="The Growing Place">The Growing Place</option>
+          <option value="The Hunter schools">The Hunter schools</option>
+          <option value="The Kids House Nursery schools">The Kids House Nursery schools</option>
+          <option value="The Learning Experience">The Learning Experience</option>
+          <option value="The Learning Experience at Cedar Grove">The Learning Experience at Cedar Grove</option>
+          <option value="The Learning Experience at Hillsborough">The Learning Experience at Hillsborough</option>
+          <option value="The Learning Experience at Ledgewood">The Learning Experience at Ledgewood</option>
+          <option value="The Learning Experience at Parsippany">The Learning Experience at Parsippany</option>
+          <option value="The Learning Experience at Somerset, LLC">The Learning Experience at Somerset, LLC</option>
+          <option value="The Learning Experience at Warren">The Learning Experience at Warren</option>
+          <option value="The Learning Gate, an Asso. of Child Care Ctrs, Inc">The Learning Gate, an Asso. of Child Care Ctrs, Inc</option>
+          <option value="The Learning Gate, an Asso. of Ctrs, Inc">The Learning Gate, an Asso. of Ctrs, Inc</option>
+          <option value="The Learning Path Nursery schools and Day Care">The Learning Path Nursery schools and Day Care</option>
+          <option value="The Learning Safari">The Learning Safari</option>
+          <option value="The London Day schools">The London Day schools</option>
+          <option value="The Montessori Children's Academy">The Montessori Children's Academy</option>
+          <option value="The Montessori Children's Academy - (Chatham)">The Montessori Children's Academy - (Chatham)</option>
+          <option value="The Montessori Children's Academy of Short Hills">The Montessori Children's Academy of Short Hills</option>
+          <option value="The Nursery schools of Christ Church">The Nursery schools of Christ Church</option>
+          <option value="The Orchard Academy">The Orchard Academy</option>
+          <option value="The Orchard schools">The Orchard schools</option>
+          <option value="The Palmer schools">The Palmer schools</option>
+          <option value="The Pampered Child, Inc.">The Pampered Child, Inc.</option>
+          <option value="The Pumpkin Patch">The Pumpkin Patch</option>
+          <option value="The Robin's Nest schools, Two">The Robin's Nest schools, Two</option>
+          <option value="The Salvation Army Day Care Center">The Salvation Army Day Care Center</option>
+          <option value="The Sundance schools">The Sundance schools</option>
+          <option value="The Tree House Child Caring Center">The Tree House Child Caring Center</option>
+          <option value="The Westmont Montessori schools">The Westmont Montessori schools</option>
+          <option value="The Wonder Years Academy">The Wonder Years Academy</option>
+          <option value="The Work-Family Connection at Harmony schools">The Work-Family Connection at Harmony schools</option>
+          <option value="Tiny Totz">Tiny Totz</option>
+          <option value="Tiny Town Learning Center">Tiny Town Learning Center</option>
+          <option value="Tiny Treasurers Preschools">Tiny Treasurers Preschools</option>
+          <option value="Tiny Turtle Academy">Tiny Turtle Academy</option>
+          <option value="Tot Lot">Tot Lot</option>
+          <option value="Towne Montessori schools">Towne Montessori schools</option>
+          <option value="Transfiguration Nursery schools">Transfiguration Nursery schools</option>
+          <option value="Ukrainian Learning Academy">Ukrainian Learning Academy</option>
+          <option value="Union Congregational Weekday Nursery Sch">Union Congregational Weekday Nursery Sch</option>
+          <option value="Union Hill Church Pre-schools">Union Hill Church Pre-schools</option>
+          <option value="Union Village Nursery schools">Union Village Nursery schools</option>
+          <option value="Valley Brook Country Day schools">Valley Brook Country Day schools</option>
+          <option value="Warren Giving Nest">Warren Giving Nest</option>
+          <option value="Washington Head Start">Washington Head Start</option>
+          <option value="Washington Kid Care & Learning Center">Washington Kid Care & Learning Center</option>
+          <option value="Washington Nursery schools, Inc.">Washington Nursery schools, Inc.</option>
+          <option value="Watchung Coopeative Nursery schools">Watchung Coopeative Nursery schools</option>
+          <option value="Wee People Preschools & Kindergarten">Wee People Preschools & Kindergarten</option>
+          <option value="West Essex YMCA Peanut Shell Nurs & CCC">West Essex YMCA Peanut Shell Nurs & CCC</option>
+          <option value="West Side Child Care Center">West Side Child Care Center</option>
+          <option value="White Meadow Lake Preschools">White Meadow Lake Preschools</option>
+          <option value="Whiton Elementary Before & After schools Program">Whiton Elementary Before & After schools Program</option>
+          <option value="Wise Owl Learning Center">Wise Owl Learning Center</option>
+        </select>
+      </label> 
+    </div>
+    <div style="margin-top: 10px;">
+      <label class="layer-wizard-search-label">
+        Tax Site Name
+        <select id="search-string_1" onchange="changeMap_1(this.value);">
+          <option value="--Select--">--Select--</option>
+          <option value="Bernards Township Public Library">Bernards Township Public Library</option>
+          <option value="Bernardsville Public Library">Bernardsville Public Library</option>
+          <option value="Boonton Senior Center">Boonton Senior Center</option>
+          <option value="Brick Avon Academy (Uwewh)">Brick Avon Academy (Uwewh)</option>
+          <option value="Brick Peshine Academy (Uwewh)">Brick Peshine Academy (Uwewh)</option>
+          <option value="Bridgewater Senior Center">Bridgewater Senior Center</option>
+          <option value="Catherine Dickson Hofman Library">Catherine Dickson Hofman Library</option>
+          <option value="Center For Prevention And Counseling">Center For Prevention And Counseling</option>
+          <option value="Chatham Library">Chatham Library</option>
+          <option value="Chatham Senior Community Center">Chatham Senior Community Center</option>
+          <option value="Chester Library">Chester Library</option>
+          <option value="City Hall (Uwewh)">City Hall (Uwewh)</option>
+          <option value="Congregational Church">Congregational Church</option>
+          <option value="Denville Municipal Building">Denville Municipal Building</option>
+          <option value="East Orange Public Library">East Orange Public Library</option>
+          <option value="Essex County College (Uwewh)">Essex County College (Uwewh)</option>
+          <option value="First Memorial Presbyterian Church">First Memorial Presbyterian Church</option>
+          <option value="Franklin Cares @ Skyland Medical Group">Franklin Cares @ Skyland Medical Group</option>
+          <option value="Franklin Township Health Department">Franklin Township Health Department</option>
+          <option value="Franklin Township Library">Franklin Township Library</option>
+          <option value="Greater Providence Missionary Baptist Church">Greater Providence Missionary Baptist Church</option>
+          <option value="Green Brook Municipal Building">Green Brook Municipal Building</option>
+          <option value="Interfaith Food Pantry">Interfaith Food Pantry</option>
+          <option value="Irvington Public Library">Irvington Public Library</option>
+          <option value="Irvington Senior Citizens Center">Irvington Senior Citizens Center</option>
+          <option value="Jefferson Senior Center">Jefferson Senior Center</option>
+          <option value="Jefferson Township Library">Jefferson Township Library</option>
+          <option value="Kinnelon Volunteer Fire Department">Kinnelon Volunteer Fire Department</option>
+          <option value="Lake Hiawatha Library">Lake Hiawatha Library</option>
+          <option value="Livingston Community Senior Center">Livingston Community Senior Center</option>
+          <option value="Madison Senior Center">Madison Senior Center</option>
+          <option value="Manville Public Library">Manville Public Library</option>
+          <option value="Maplewood Hilton Branch Library">Maplewood Hilton Branch Library</option>
+          <option value="Montgomery Community Center">Montgomery Community Center</option>
+          <option value="Morris County Library">Morris County Library</option>
+          <option value="Morristown Senior Center">Morristown Senior Center</option>
+          <option value="Mount Olive Library">Mount Olive Library</option>
+          <option value="New Community Family Resource Success Center">New Community Family Resource Success Center</option>
+          <option value="Newark Emergency Services (Uwewh)">Newark Emergency Services (Uwewh)</option>
+          <option value="Newark Legacy Charter School (Uwewh)">Newark Legacy Charter School (Uwewh)</option>
+          <option value="Norwescap">Norwescap</option>
+          <option value="Parsippany Community Center">Parsippany Community Center</option>
+          <option value="Parsippany-Troy Hills Public Library">Parsippany-Troy Hills Public Library</option>
+          <option value="Pequannock Municipal Bldg.">Pequannock Municipal Bldg.</option>
+          <option value="Phillipsburg Free Public Library">Phillipsburg Free Public Library</option>
+          <option value="Presbyterian Church">Presbyterian Church</option>
+          <option value="Raritan Valley Community College">Raritan Valley Community College</option>
+          <option value="Rockaway Township Senior Center">Rockaway Township Senior Center</option>
+          <option value="Roxbury Public Library">Roxbury Public Library</option>
+          <option value="South Orange Public Library">South Orange Public Library</option>
+          <option value="Sparta Senior Center">Sparta Senior Center</option>
+          <option value="United Way Of Northern New Jersey">United Way Of Northern New Jersey</option>
+          <option value="Warren County Library">Warren County Library</option>
+          <option value="Warren County Library (Northeast Branch)">Warren County Library (Northeast Branch)</option>
+          <option value="Washington School">Washington School</option>
+          <option value="Wharton Public Library">Wharton Public Library</option>
+        </select>
+      </label> 
+    </div>
+  </body>
+</html>
